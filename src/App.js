@@ -1,12 +1,13 @@
 
 import './App.css';
-import Button from '@mui/material/Button';
+import Footer from './components/footer/Footer.jsx';
 import Header from './components/header/Header';
 
 function App() {
   return (
     <div className="App">
       <Header/>
+      <Footer/>
     </div>
   );
 }
