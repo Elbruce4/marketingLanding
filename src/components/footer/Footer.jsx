@@ -3,6 +3,8 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import ButtonBase from '@mui/material/ButtonBase';
 import Typography from '@mui/material/Typography';
+import {BsFacebook , BsInstagram} from "react-icons/bs";
+import Grid from '@mui/material/Grid';
 
 const images = [
   {
@@ -89,67 +91,59 @@ const ImageMarked = styled('span')(({ theme }) => ({
 
 export default function ButtonBases() {
   return (
-    <Box sx={{ display: 'flex', flexWrap: 'wrap', minWidth: 400, width: '100%' }}>
-      {images.map((image) => (
-        <ImageButton
-          focusRipple
-          key={image.title}
+    <div className='sticky bottom-0'>
+
+      <Box sx={{ 
+        display: 'flex', 
+        flexWrap: 'wrap', 
+        minWidth: 400, 
+        width: '100%',
+      }}>
+        {images.map((image) => (
+          <ImageButton
+            focusRipple
+            key={image.title}
+            style={{
+              width: image.width,
+            }}
+          >
+            <ImageSrc style={{ backgroundImage: `url(${image.url})`}} />
+            <ImageBackdrop className="MuiImageBackdrop-root" />
+            <Image>
+              <Typography
+                component="span"
+                variant="subtitle1"
+                color="inherit"
+                sx={{
+                  position: 'relative',
+                  p: 4,
+                  pt: 2,
+                  pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
+                }}
+              >
+                {image.title}
+                <ImageMarked className="MuiImageMarked-root" />
+              </Typography>
+            </Image>
+          </ImageButton>
+        ))}
+      </Box>
+      <div >
+        <BsFacebook 
+          fill='#2E86C1'
+          size={20}
           style={{
-            width: image.width,
+            margin: 10
           }}
-        >
-          <ImageSrc style={{ backgroundImage: `url(${image.url})`}} />
-          <ImageBackdrop className="MuiImageBackdrop-root" />
-          <Image>
-            <Typography
-              component="span"
-              variant="subtitle1"
-              color="inherit"
-              sx={{
-                position: 'relative',
-                p: 4,
-                pt: 2,
-                pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
-              }}
-            >
-              {image.title}
-              <ImageMarked className="MuiImageMarked-root" />
-            </Typography>
-          </Image>
-        </ImageButton>
-      ))}
-    </Box>
+        />
+        <BsInstagram
+          fill='#2E86C1'
+          size={20}
+          style={{
+            margin: 10
+          }}
+        />
+      </div>
+    </div>
   );
 }
-
-
-
-
-/* import {Container} from "./Footer.js"
-
-const Footer = () => {
-
-    return (
-        <Container>
-            <div>
-                <h3>CASA CENTRAL</h3>
-                <p>Av. Rivadavia 6111 C.A.B.A.</p>
-            </div>
-            <div>
-                <h3>FLORIDA</h3>
-                <p>Av. Mitre 1602 Florida GBA</p>
-            </div>
-            <div>
-                <h3>BARILOCHE</h3>
-                <p>
-                Cmte. Luis Piedrabuena 6038
-                San Carlos de Bariloche
-                </p>
-            </div>
-        </Container>
-    )
-
-}
-
-
-export default Footer; */
