@@ -10,7 +10,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useEffect , useState } from 'react';
+import { useState } from 'react';
 import ford from "../../images/fordLogo.png"
 import brenson from "../../images/branson.png"
 
@@ -32,7 +32,7 @@ const theme = createTheme();
 
 export default function SignInSide() {
 
-    const [image , setImage] = useState('https://fotos.perfil.com/2019/08/28/trim/1280/720/ford-ecosport-769537.jpg');
+    const [image , setImage] = useState('https://www.ford.com/cmslibs/content/dam/brand_ford/en_us/brand/legacy/nameplate/suvs/MY20Ecosport_2160x1440.jpg/_jcr_content/renditions/cq5dam.web.768.768.jpeg');
     console.log(image);
 
     const handleSubmit = (event) => {
@@ -72,7 +72,12 @@ export default function SignInSide() {
                 alignItems: 'center',
                 }}
             >
-                <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+                <Box 
+                    component="form" 
+                    noValidate 
+                    onSubmit={handleSubmit} 
+                    sx={{ mt: 1 }}
+                >
                 <img 
                     src={ford} 
                     alt="ford"
@@ -118,8 +123,10 @@ export default function SignInSide() {
                     type="number"
                 />
                 <TextField 
+                    margin="normal"
                     fullWidth 
                     label="Consulta"
+                    multiline
                     //style={{ height: 200 }}
                 />
                 <Button

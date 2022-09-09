@@ -3,5 +3,6 @@ import styled from "styled-components"
 export const Container = styled.div`
     display : flex;
     flex-direction: row;
-    justify-content: space-around
+    justify-content: space-around;
+    position: absolute
 `
