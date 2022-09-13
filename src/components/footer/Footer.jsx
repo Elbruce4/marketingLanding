@@ -93,10 +93,11 @@ export default function ButtonBases() {
   return (
     
     
-    <footer style = {{
-      marginTop : "auto"
-    }}> 
-
+    <Grid marginTop={{
+      xs : 75,
+      md : 0
+    }}
+    > 
 
         <Box sx={{ 
           display: 'flex', 
@@ -149,6 +150,6 @@ export default function ButtonBases() {
             }}
           />
         </div>
-    </footer>
+    </Grid>
   );
 }

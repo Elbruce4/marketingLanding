@@ -10,6 +10,7 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
 import Grid from '@mui/material/Grid';
+import { BsBoxArrowInUp } from 'react-icons/bs';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -82,9 +83,15 @@ function SwipeableTextMobileStepper() {
               enableMouseEvents
         >
             {images.map((step, index) => (
-            <div 
+            <Box 
+              
               key={step.label}
-              style={{height:"530px"}}>
+              //style={{height:"530px"}}
+              height = {{
+                xs : 330,
+                md : 530
+              }}
+              >
                 {Math.abs(activeStep - index) <= 2 ? (
                 <Box
                     component="img"
@@ -99,7 +106,7 @@ function SwipeableTextMobileStepper() {
                 />
                 ) 
                 : null}
-            </div>
+            </Box>
             ))}
         </AutoPlaySwipeableViews>}
 
