@@ -34,6 +34,11 @@ const images = [
     imgPath:
       'https://siempreauto.com/wp-content/uploads/sites/9/2021/11/meritt-thomas-BwBxVVdlpYE-unsplash-1.jpg?quality=60&strip=all&w=1200',
   },
+  {
+    label: 'Sedan',
+    imgPath:
+      'https://www.elcarrocolombiano.com/wp-content/uploads/2020/10/20201110-Ford-011-S%C3%8D.jpg',
+  },
 ];
 
 function SwipeableTextMobileStepper() {
@@ -55,7 +60,7 @@ function SwipeableTextMobileStepper() {
 
   return (
     
-    <Grid>
+    <Grid order={{md : 1 , xs : 2}}>
         <Box sx={{ maxWidth: 780, flexGrow: 1 }}>
         <Paper
             square
@@ -70,19 +75,20 @@ function SwipeableTextMobileStepper() {
         >
         </Paper>
     {      <AutoPlaySwipeableViews
-            axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-            index={activeStep}
-            onChangeIndex={handleStepChange}
-            enableMouseEvents
+
+              axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+              index={activeStep}
+              onChangeIndex={handleStepChange}
+              enableMouseEvents
         >
             {images.map((step, index) => (
-            <div key={step.label}>
+            <div 
+              key={step.label}
+              style={{height:"530px"}}>
                 {Math.abs(activeStep - index) <= 2 ? (
                 <Box
                     component="img"
                     sx={{
-                        
-                    height: "100%",
                     display: 'relative',
                     maxWidth: 1000,
                     overflow: 'hidden',
@@ -99,7 +105,7 @@ function SwipeableTextMobileStepper() {
 
         <MobileStepper
             steps={maxSteps}
-            position="static"
+            position="relative"
             activeStep={activeStep}
             nextButton={
             <Button

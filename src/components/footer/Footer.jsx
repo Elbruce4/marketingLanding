@@ -91,59 +91,64 @@ const ImageMarked = styled('span')(({ theme }) => ({
 
 export default function ButtonBases() {
   return (
-    <div className='sticky bottom-0'>
+    
+    
+    <footer style = {{
+      marginTop : "auto"
+    }}> 
 
-      <Box sx={{ 
-        display: 'flex', 
-        flexWrap: 'wrap', 
-        minWidth: 400, 
-        width: '100%',
-      }}>
-        {images.map((image) => (
-          <ImageButton
-            focusRipple
-            key={image.title}
+
+        <Box sx={{ 
+          display: 'flex', 
+          flexWrap: 'wrap', 
+          minWidth: 400, 
+          width: '100%',
+        }}>
+          {images.map((image) => (
+            <ImageButton
+              focusRipple
+              key={image.title}
+              style={{
+                width: image.width,
+              }}
+            >
+              <ImageSrc style={{ backgroundImage: `url(${image.url})`}} />
+              <ImageBackdrop className="MuiImageBackdrop-root" />
+              <Image>
+                <Typography
+                  component="span"
+                  variant="subtitle1"
+                  color="inherit"
+                  sx={{
+                    position: 'relative',
+                    p: 4,
+                    pt: 2,
+                    pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
+                  }}
+                >
+                  {image.title}
+                  <ImageMarked className="MuiImageMarked-root" />
+                </Typography>
+              </Image>
+            </ImageButton>
+          ))}
+        </Box>
+        <div >
+          <BsFacebook 
+            fill='#2E86C1'
+            size={20}
             style={{
-              width: image.width,
+              margin: 10
             }}
-          >
-            <ImageSrc style={{ backgroundImage: `url(${image.url})`}} />
-            <ImageBackdrop className="MuiImageBackdrop-root" />
-            <Image>
-              <Typography
-                component="span"
-                variant="subtitle1"
-                color="inherit"
-                sx={{
-                  position: 'relative',
-                  p: 4,
-                  pt: 2,
-                  pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
-                }}
-              >
-                {image.title}
-                <ImageMarked className="MuiImageMarked-root" />
-              </Typography>
-            </Image>
-          </ImageButton>
-        ))}
-      </Box>
-      <div >
-        <BsFacebook 
-          fill='#2E86C1'
-          size={20}
-          style={{
-            margin: 10
-          }}
-        />
-        <BsInstagram
-          fill='#2E86C1'
-          size={20}
-          style={{
-            margin: 10
-          }}
-        />
-      </div>
-    </div>
+          />
+          <BsInstagram
+            fill='#2E86C1'
+            size={20}
+            style={{
+              margin: 10
+            }}
+          />
+        </div>
+    </footer>
   );
 }
